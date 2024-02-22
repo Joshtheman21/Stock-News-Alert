@@ -1,1 +1,3 @@
-# Stock-News-Alert
+# The concept of this application is for you to grab an API from the two endpoints "aplhavantage" and "newsapi". From there you'll be tapping in to their data and choosing whatever company you want to keep tabs on their stock. I created this where you will get the first 3 articles concerning the stock that'll be sent to your phone via the Twilio API. Also, in the program I created where you can see the current stock price and the day before, allowing you to compare the difference. 
+
+#Twilio has changed some of their rules as well, so in order for you to get the messaging. You must verify the free toll number. Should take no longer than 2-3 mins. Enjoy!!
