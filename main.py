@@ -35,7 +35,7 @@ print(day_before_yesterday_closing_price)
 #Printing out the positive difference between yesterdays closing price and the day before it closing price.
 #used abs to get absolute number
 
-difference = abs(float(yesterday_closing_price)- float(day_before_yesterday_closing_price))
+difference = (float(yesterday_closing_price)- float(day_before_yesterday_closing_price))
 up_down = None
 if difference > 0:
     up_down = "🔺"
@@ -43,12 +43,12 @@ else:
     up_down = "🔻"
 
 #Printing out the percentage difference between yesterday closing price and day before yesterday closing price
-diff_percent = (difference / float(yesterday_closing_price)) * 100
+diff_percent = round(difference / float(yesterday_closing_price)) * 100
 print(diff_percent)
 
 #using the News API to get articles related to the COMPANY_NAME.
 
-if diff_percent > 0:
+if abs(diff_percent) > 0:
     news_params = {
         "apikey": NEWS_API_KEY,
         "qInTitle": COMPANY_NAME,
@@ -62,7 +62,7 @@ if diff_percent > 0:
     print(three_articles)
 
 #Using list comprehension to create a list of the first three articles with the company name
-    formatted_articles = [f"Headline: {article['title']}. \nBrief: {article['description']}" for article in three_articles]
+    formatted_articles = [f"{STOCK_NAME}: {up_down} {diff_percent}%\nHeadline: {article['title']}. \nBrief: {article['description']}" for article in three_articles]
     print(formatted_articles)
 #Sent each article as a separate message via Twilio.
 
